@@ -49,14 +49,14 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(811, 229);
+            this.dataGridView1.Size = new System.Drawing.Size(920, 229);
             this.dataGridView1.TabIndex = 0;
             // 
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(116, 302);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(138, 23);
+            this.addButton.Size = new System.Drawing.Size(197, 23);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
@@ -64,25 +64,27 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(260, 302);
+            this.updateButton.Location = new System.Drawing.Point(319, 302);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(144, 23);
+            this.updateButton.Size = new System.Drawing.Size(171, 23);
             this.updateButton.TabIndex = 2;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(410, 302);
+            this.deleteButton.Location = new System.Drawing.Point(496, 302);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(157, 23);
+            this.deleteButton.Size = new System.Drawing.Size(180, 23);
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(573, 302);
+            this.searchButton.Location = new System.Drawing.Point(682, 302);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(146, 23);
             this.searchButton.TabIndex = 4;
@@ -102,7 +104,7 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(725, 302);
+            this.searchTextBox.Location = new System.Drawing.Point(834, 302);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(202, 22);
             this.searchTextBox.TabIndex = 6;

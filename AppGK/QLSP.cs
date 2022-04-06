@@ -114,7 +114,7 @@ namespace AppGK
             List<SanPham> data = GetAllSP();
             switch (By)
             {
-                case "STT":
+                case "":
                     return data;
                 case "MSP":
                     Compare = CompareMSP;

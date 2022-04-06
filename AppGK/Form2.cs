@@ -18,6 +18,7 @@ namespace AppGK
         public MyDel d;
         public void FillNhaSX(string mathang)
         {
+            NhaSanXuatComboBox.Items.Clear();
             foreach(string s in QLSPInstance.GetNhaSanXuat(mathang))
             {
                 NhaSanXuatComboBox.Items.Add(s);
@@ -39,7 +40,8 @@ namespace AppGK
                 TenSanPhamTextBox.Text=s.TenSanPham;
                 NgayNhapDateTimePicker.Value = s.NgayNhapHang;
                 MatHangComboBox.SelectedItem = s.TenMatHang;
-                FillNhaSX(s.TenSanPham);
+                FillNhaSX(s.TenMatHang);
+                NhaSanXuatComboBox.SelectedItem = s.NhaSanXuat;
                 bool TinhTrang = s.TinhTrang;
                 if(TinhTrang) radioButton1.Checked = true;
                 else radioButton2.Checked = false;
@@ -52,9 +54,10 @@ namespace AppGK
             if (radioButton1.Checked) TinhTrang=true;
             else TinhTrang=false;
             SanPham s = new SanPham(MaSanPhamTextBox.Text, TenSanPhamTextBox.Text, NgayNhapDateTimePicker.Value, NhaSanXuatComboBox.SelectedItem.ToString(), TinhTrang, MatHangComboBox.SelectedItem.ToString());
-            if(MSP==null) QLSPInstance.AddRow(s);
+            if(MSP=="") QLSPInstance.AddRow(s);
             else QLSPInstance.UpdateRow(s);
             d("");
+            this.Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
