@@ -13,7 +13,7 @@ namespace AppGK
     public partial class Form2 : Form
     {
         private QLSP QLSPInstance=new QLSP();
-        string MSSP;
+        string MSP;
         public delegate void MyDel(string Name);
         public MyDel d;
         public void FillNhaSX(string mathang)
@@ -26,15 +26,15 @@ namespace AppGK
         public Form2(string m="")
         {
             InitializeComponent();
-            MSSP = m;
+            MSP = m;
             foreach(string mathang in QLSPInstance.GetMatHang())
             {
                 MatHangComboBox.Items.Add(mathang);
-            }
-            if (MSSP != null)
+            }   
+            if (MSP != "")
             {
                 MaSanPhamTextBox.Enabled = false;
-                SanPham s = QLSPInstance.GetSanPham(MSSP);
+                SanPham s = QLSPInstance.GetSanPham(MSP);
                 MaSanPhamTextBox.Text = s.MSP;
                 TenSanPhamTextBox.Text=s.TenSanPham;
                 NgayNhapDateTimePicker.Value = s.NgayNhapHang;
@@ -52,7 +52,7 @@ namespace AppGK
             if (radioButton1.Checked) TinhTrang=true;
             else TinhTrang=false;
             SanPham s = new SanPham(MaSanPhamTextBox.Text, TenSanPhamTextBox.Text, NgayNhapDateTimePicker.Value, NhaSanXuatComboBox.SelectedItem.ToString(), TinhTrang, MatHangComboBox.SelectedItem.ToString());
-            if(MSSP==null) QLSPInstance.AddRow(s);
+            if(MSP==null) QLSPInstance.AddRow(s);
             else QLSPInstance.UpdateRow(s);
             d("");
         }

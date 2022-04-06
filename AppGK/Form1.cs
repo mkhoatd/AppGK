@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastMember;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,8 +38,15 @@ namespace AppGK
         }
         public void Reload(string name)
         {
-            if (name == "") dataGridView1.DataSource = QLSPInstance.GetAllSP();
-            else dataGridView1.DataSource = QLSPInstance.GetSPByName(name);
+            List<SanPham> data;
+            if (name == "") data = QLSPInstance.GetAllSP();
+            else data = QLSPInstance.GetSPByName(name);
+            DataTable table = new DataTable();
+            using (var reader = ObjectReader.Create(data))
+            {
+                table.Load(reader);
+            }
+            dataGridView1.DataSource=table;
         }
 
         private void addButton_Click(object sender, EventArgs e)

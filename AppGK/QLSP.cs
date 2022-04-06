@@ -46,16 +46,16 @@ namespace AppGK
             }
             return data;
         }
-        public List<String> GetMatHang()
+        public IEnumerable<String> GetMatHang()
         {
             List<string> data=new List<string>();
             foreach(SanPham s in GetAllSP())
             {
                 data.Add(s.TenMatHang);
             }
-            return (List<string>)data.Distinct();
+            return data.Distinct();
         }
-        public List<string> GetNhaSanXuat(string TenMatHang)
+        public IEnumerable<string> GetNhaSanXuat(string TenMatHang)
         {
             List<string> data = new List<string>();
             if (TenMatHang == "")
@@ -72,7 +72,7 @@ namespace AppGK
                     if (s.TenMatHang.Contains(TenMatHang)) data.Add(s.NhaSanXuat);
                 }
             }
-            return (List<string>)data.Distinct();       
+            return data.Distinct();       
         }
         public void DelRow(string MSSP)
         {
