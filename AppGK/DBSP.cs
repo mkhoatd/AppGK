@@ -53,9 +53,36 @@ namespace AppGK
             {
                 if (dr["MSSP"].ToString() == s.MSSP)
                 {
-
+                    dr["TenSanPham"] = s.TenSanPham;
+                    dr["NgayNhapHang"] = s.NgayNhapHang;
+                    dr["NhaSanXuat"] = s.NhaSanXuat;
+                    dr["TrangThai"] = s.TrangThai;
+                    dr["TenMatHang"]=s.TenMatHang;
                 }
             }
+        }
+        private void UpdateSTT()
+        {
+            for(int i=0;i< DTSP.Rows.Count; i++)
+            {
+                DataRow dr = DTSP.Rows[i];
+                dr["STT"] = (i + 1).ToString();
+            }
+        }
+        public void DelRow(string MSSP)
+        {
+            SoSanPham--;
+            for(int i = DTSP.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr=DTSP.Rows[i];
+                if(dr["MSSP"].ToString()==MSSP) dr.Delete();
+            }
+            DTSP.AcceptChanges();
+        }
+        public DataTable Get()
+        {
+            UpdateSTT();
+            return DBSP.Instance.DTSP;
         }
     }
 }
