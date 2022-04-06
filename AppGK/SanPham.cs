@@ -8,7 +8,7 @@ namespace AppGK
 {
     class SanPham
     {
-        public string Id { get; set; } 
+        public string MSSP { get; set; } 
         public string TenSanPham { get; set; }
         public DateTime NgayNhapHang;
         public string NhaSanXuat;
@@ -16,7 +16,7 @@ namespace AppGK
         public string TenMatHang;
         public SanPham(string Id, string TenSanPham,string NgayNhapHang,string NhaSanXuat, string TrangThai, string TenMatHang)
         {
-            this.Id = Id;
+            this.MSSP = Id;
             this.TenSanPham = TenSanPham;
             this.NgayNhapHang=Convert.ToDateTime(NgayNhapHang);
             this.NhaSanXuat = NhaSanXuat;
