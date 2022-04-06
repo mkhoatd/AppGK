@@ -30,7 +30,7 @@ namespace AppGK
             DTSP = new DataTable();
             DTSP.Columns.AddRange(new DataColumn[] {
                 new DataColumn("STT",typeof(string)),
-                new DataColumn("MSSP",typeof(string)),
+                new DataColumn("MSP",typeof(string)),
                 new DataColumn("TenSanPham",typeof(string)),
                 new DataColumn("NgayNhapHang",typeof(DateTime)),
                 new DataColumn("NhaSanXuat",typeof(string)),
@@ -49,13 +49,13 @@ namespace AppGK
         public void AddRow(SanPham s)
         {
             SoSanPham++;
-            DTSP.Rows.Add(Convert.ToInt32(SoSanPham), s.MSSP, s.TenSanPham, s.NgayNhapHang, s.NhaSanXuat, s.TrangThai, s.TenMatHang);
+            DTSP.Rows.Add(Convert.ToInt32(SoSanPham), s.MSP, s.TenSanPham, s.NgayNhapHang, s.NhaSanXuat, s.TrangThai, s.TenMatHang);
         }
         public void UpdateRow(SanPham s)
         {
             foreach(DataRow dr in DTSP.Rows)
             {
-                if (dr["MSSP"].ToString() == s.MSSP)
+                if (dr["MSP"].ToString() == s.MSP)
                 {
                     dr["TenSanPham"] = s.TenSanPham;
                     dr["NgayNhapHang"] = s.NgayNhapHang;
@@ -82,7 +82,7 @@ namespace AppGK
             for(int i = DTSP.Rows.Count - 1; i >= 0; i--)
             {
                 DataRow dr=DTSP.Rows[i];
-                if(dr["MSSP"].ToString()==MSSP) dr.Delete();
+                if(dr["MSP"].ToString()==MSSP) dr.Delete();
             }
             DTSP.AcceptChanges();
         }

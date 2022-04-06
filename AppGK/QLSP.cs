@@ -12,7 +12,7 @@ namespace AppGK
         public SanPham GetSanPhamByDataRow(DataRow i)
         {
             return new SanPham(
-                i["MSSP"].ToString(),
+                i["MSP"].ToString(),
                 i["TenSanPham"].ToString(),
                 i["NgayNhapHang"].ToString(),
                 i["NhaSanXuat"].ToString(),
@@ -61,9 +61,65 @@ namespace AppGK
         {
             DBSP.Instance.DelRow(MSSP);
         }
+        public void DelRow(SanPham s)
+        {
+            DBSP.Instance.DelRow(s.MSP);
+        }
         public void AddRow(SanPham s)
         {
             DBSP.Instance.AddRow(s);
+        }
+        public void UpdateRow(SanPham s)
+        {
+            DBSP.Instance.UpdateRow(s);
+        }
+        public List<SanPham> Sort(string By)
+        {
+            bool CompareMSP(SanPham s1,SanPham s2)
+            {
+                int comparison = String.Compare(s1.MSP, s2.MSP, comparisonType: StringComparison.OrdinalIgnoreCase);
+                if (comparison>0) return true;
+                return false;
+            }
+            bool CompareTenSanPham(SanPham s1,SanPham s2)
+            {
+                int comparison = String.Compare(s1.TenSanPham, s2.TenSanPham, comparisonType: StringComparison.OrdinalIgnoreCase);
+                if(comparison>0) return true;
+                return false;
+            }
+            bool CompareNgayNhap(SanPham s1,SanPham s2)
+            {
+                int comparison=DateTime.Compare(Convert.ToDateTime(s1.NgayNhapHang),Convert.ToDateTime(s2.NgayNhapHang));
+                if (comparison > 0) return true;
+                return false;
+            }
+            Func<SanPham, SanPham, bool> Compare=null;
+            List<SanPham> data = GetAllSP();
+            switch (By)
+            {
+                case "STT":
+                    return data;
+                case "MSP":
+                    Compare = CompareMSP;
+                    break;
+                case "TenSanPham":
+                    Compare= CompareTenSanPham;
+                    break;
+                case "NgayNhap":
+                    Compare=CompareNgayNhap;
+                    break;
+                default:
+                    break;
+            }
+            for (int i = 0; i < data.Count; i++)
+                for (int j = i + 1; j < data.Count; j++)
+                    if (Compare(data[i], data[j]))
+                    {
+                        var temp = data[i];
+                        data[i] = data[j];
+                        data[j] = temp;
+                    }
+            return data;
         }
     }
 }

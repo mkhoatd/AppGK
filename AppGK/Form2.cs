@@ -14,7 +14,7 @@ namespace AppGK
     {
         string MSSP;
         public delegate void MyDel(string Name);
-
+        public MyDel d;
         public Form2(string m="")
         {
             InitializeComponent();
