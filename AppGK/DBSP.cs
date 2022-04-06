@@ -39,7 +39,9 @@ namespace AppGK
             });
             DTSP.Rows.Add("01", "101", "A", DateTime.Now, "MSI", 1, "Laptop");
             DTSP.Rows.Add("02", "69", "B", DateTime.Now, "ASUS", 1, "Laptop");
-            DTSP.Rows.Add("03", "96", "C", DateTime.Now, "Samsung", 1, "Stupidphone");
+            DTSP.Rows.Add("03", "96", "Iphone 1", DateTime.Now, "Apple", 1, "Smartphone");
+            DTSP.Rows.Add("03", "102", "Iphone 2", DateTime.Now, "Apple", 0, "Smartphone");
+            DTSP.Rows.Add("03", "103", "Macbook 1", DateTime.Now, "Apple", 1, "Laptop");
             Deleted = 0;
             SoSanPham = 3;
         }

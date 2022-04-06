@@ -14,9 +14,9 @@ namespace AppGK
         public string NhaSanXuat;
         public bool TrangThai;
         public string TenMatHang;
-        public SanPham(string Id, string TenSanPham,string NgayNhapHang,string NhaSanXuat, string TrangThai, string TenMatHang)
+        public SanPham(string MSSP, string TenSanPham,string NgayNhapHang,string NhaSanXuat, string TrangThai, string TenMatHang)
         {
-            this.MSSP = Id;
+            this.MSSP = MSSP;
             this.TenSanPham = TenSanPham;
             this.NgayNhapHang=Convert.ToDateTime(NgayNhapHang);
             this.NhaSanXuat = NhaSanXuat;

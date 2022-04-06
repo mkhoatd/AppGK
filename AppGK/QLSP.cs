@@ -28,6 +28,42 @@ namespace AppGK
             }
             return data;
         }
-        public List<SanPham>
+        public List<SanPham> GetSPByName(string TenSanPham)
+        {
+            if(TenSanPham == null) return GetAllSP();
+            List<SanPham> data=new List<SanPham>();
+            foreach(SanPham s in GetAllSP())
+            {
+                if (s.TenSanPham.Contains(TenSanPham)) data.Add(s);
+            }
+            return data;
+        }
+        public List<string> GetNhaSanXuat(string TenMatHang)
+        {
+            List<string> data = new List<string>();
+            if (TenMatHang == null)
+            {
+                foreach (SanPham s in GetAllSP())
+                {
+                    data.Add(s.NhaSanXuat);
+                }
+            }
+            else
+            {
+                foreach(SanPham s in GetAllSP())
+                {
+                    if (s.TenMatHang.Contains(TenMatHang)) data.Add(s.NhaSanXuat);
+                }
+            }
+            return (List<string>)data.Distinct();       
+        }
+        public void DelRow(string MSSP)
+        {
+            DBSP.Instance.DelRow(MSSP);
+        }
+        public void AddRow(SanPham s)
+        {
+            DBSP.Instance.AddRow(s);
+        }
     }
 }

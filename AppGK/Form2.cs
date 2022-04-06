@@ -12,9 +12,18 @@ namespace AppGK
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        string MSSP;
+        public delegate void MyDel(string Name);
+
+        public Form2(string m="")
         {
             InitializeComponent();
+            MSSP = m;
+            if (MSSP != null)
+            {
+                MaSanPhamTextBox.Enabled = false;
+
+            }
         }
 
     }
