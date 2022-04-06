@@ -54,6 +54,7 @@ namespace AppGK
             SanPham s = new SanPham(MaSanPhamTextBox.Text, TenSanPhamTextBox.Text, NgayNhapDateTimePicker.Value, NhaSanXuatComboBox.SelectedItem.ToString(), TinhTrang, MatHangComboBox.SelectedItem.ToString());
             if(MSSP==null) QLSPInstance.AddRow(s);
             else QLSPInstance.UpdateRow(s);
+            d("");
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

@@ -17,7 +17,35 @@ namespace AppGK
         public Form1()
         {
             InitializeComponent();
-            dataGridView1.DataSource = QLSPInstance.GetAllSP;
+            sortComboBox.Items.Add("STT");
+            sortComboBox.Items.Add("MSP");
+            sortComboBox.Items.Add("TenSanPham");
+            sortComboBox.Items.Add("NgayNhap");
+            Reload("");
+
         }
+
+        private void sortComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void sortButton_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource=QLSPInstance.Sort(sortComboBox.SelectedItem.ToString());
+        }
+        public void Reload(string name)
+        {
+            if (name == null) dataGridView1.DataSource = DBSP.Get();
+            dataGridView1.DataSource = DBSP.Get();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            Form2 f=new Form2("");
+            f.d = Reload;
+            f.Show();
+        }
+       
     }
 }
