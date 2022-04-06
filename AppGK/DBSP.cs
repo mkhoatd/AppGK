@@ -34,7 +34,7 @@ namespace AppGK
                 new DataColumn("TenSanPham",typeof(string)),
                 new DataColumn("NgayNhapHang",typeof(DateTime)),
                 new DataColumn("NhaSanXuat",typeof(string)),
-                new DataColumn("TrangThai",typeof(bool)),
+                new DataColumn("TinhTrang",typeof(bool)),
                 new DataColumn("TenMatHang",typeof(string)),
             });
             DTSP.Rows.Add("01", "101", "A", DateTime.Now, "MSI", 1, "Laptop");
@@ -49,7 +49,7 @@ namespace AppGK
         public void AddRow(SanPham s)
         {
             SoSanPham++;
-            DTSP.Rows.Add(Convert.ToInt32(SoSanPham), s.MSP, s.TenSanPham, s.NgayNhapHang, s.NhaSanXuat, s.TrangThai, s.TenMatHang);
+            DTSP.Rows.Add(Convert.ToInt32(SoSanPham), s.MSP, s.TenSanPham, s.NgayNhapHang, s.NhaSanXuat, s.TinhTrang, s.TenMatHang);
         }
         public void UpdateRow(SanPham s)
         {
@@ -60,7 +60,7 @@ namespace AppGK
                     dr["TenSanPham"] = s.TenSanPham;
                     dr["NgayNhapHang"] = s.NgayNhapHang;
                     dr["NhaSanXuat"] = s.NhaSanXuat;
-                    dr["TrangThai"] = s.TrangThai;
+                    dr["TinhTrang"] = s.TinhTrang;
                     dr["TenMatHang"]=s.TenMatHang;
                 }
             }

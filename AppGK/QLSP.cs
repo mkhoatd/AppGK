@@ -16,7 +16,7 @@ namespace AppGK
                 i["TenSanPham"].ToString(),
                 i["NgayNhapHang"].ToString(),
                 i["NhaSanXuat"].ToString(),
-                i["TrangThai"].ToString(),
+                i["TinhTrang"].ToString(),
                 i["TenMatHang"].ToString());
         }
         public List<SanPham> GetAllSP()
@@ -28,6 +28,14 @@ namespace AppGK
             }
             return data;
         }
+        public SanPham GetSanPham(string MSP)
+        {
+            foreach(SanPham s in GetAllSP())
+            {
+                if (s.MSP == MSP) return s;
+            }
+            return null;
+        }
         public List<SanPham> GetSPByName(string TenSanPham)
         {
             if(TenSanPham == null) return GetAllSP();
@@ -37,6 +45,15 @@ namespace AppGK
                 if (s.TenSanPham.Contains(TenSanPham)) data.Add(s);
             }
             return data;
+        }
+        public List<String> GetMatHang()
+        {
+            List<string> data=new List<string>();
+            foreach(SanPham s in GetAllSP())
+            {
+                data.Add(s.TenMatHang);
+            }
+            return (List<string>)data.Distinct();
         }
         public List<string> GetNhaSanXuat(string TenMatHang)
         {

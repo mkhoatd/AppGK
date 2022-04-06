@@ -32,8 +32,6 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.NgayNhapDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.NhaSanXuatTextBox = new System.Windows.Forms.TextBox();
-            this.MatHangTextBox = new System.Windows.Forms.TextBox();
             this.TenSanPhamTextBox = new System.Windows.Forms.TextBox();
             this.MaSanPhamTextBox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -44,16 +42,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.MatHangComboBox = new System.Windows.Forms.ComboBox();
+            this.NhaSanXuatComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.NhaSanXuatComboBox);
+            this.groupBox1.Controls.Add(this.MatHangComboBox);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.NgayNhapDateTimePicker);
-            this.groupBox1.Controls.Add(this.NhaSanXuatTextBox);
-            this.groupBox1.Controls.Add(this.MatHangTextBox);
             this.groupBox1.Controls.Add(this.TenSanPhamTextBox);
             this.groupBox1.Controls.Add(this.MaSanPhamTextBox);
             this.groupBox1.Controls.Add(this.cancelButton);
@@ -100,20 +100,6 @@
             this.NgayNhapDateTimePicker.Size = new System.Drawing.Size(200, 22);
             this.NgayNhapDateTimePicker.TabIndex = 11;
             // 
-            // NhaSanXuatTextBox
-            // 
-            this.NhaSanXuatTextBox.Location = new System.Drawing.Point(525, 76);
-            this.NhaSanXuatTextBox.Name = "NhaSanXuatTextBox";
-            this.NhaSanXuatTextBox.Size = new System.Drawing.Size(100, 22);
-            this.NhaSanXuatTextBox.TabIndex = 10;
-            // 
-            // MatHangTextBox
-            // 
-            this.MatHangTextBox.Location = new System.Drawing.Point(525, 23);
-            this.MatHangTextBox.Name = "MatHangTextBox";
-            this.MatHangTextBox.Size = new System.Drawing.Size(100, 22);
-            this.MatHangTextBox.TabIndex = 9;
-            // 
             // TenSanPhamTextBox
             // 
             this.TenSanPhamTextBox.Location = new System.Drawing.Point(111, 76);
@@ -134,8 +120,9 @@
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "button2";
+            this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // OKButton
             // 
@@ -143,8 +130,9 @@
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 5;
-            this.OKButton.Text = "button1";
+            this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // idLabel
             // 
@@ -200,6 +188,23 @@
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Tên sản phẩm";
             // 
+            // MatHangComboBox
+            // 
+            this.MatHangComboBox.FormattingEnabled = true;
+            this.MatHangComboBox.Location = new System.Drawing.Point(525, 23);
+            this.MatHangComboBox.Name = "MatHangComboBox";
+            this.MatHangComboBox.Size = new System.Drawing.Size(121, 24);
+            this.MatHangComboBox.TabIndex = 14;
+            this.MatHangComboBox.SelectedIndexChanged += new System.EventHandler(this.MatHangComboBox_SelectedIndexChanged);
+            // 
+            // NhaSanXuatComboBox
+            // 
+            this.NhaSanXuatComboBox.FormattingEnabled = true;
+            this.NhaSanXuatComboBox.Location = new System.Drawing.Point(525, 76);
+            this.NhaSanXuatComboBox.Name = "NhaSanXuatComboBox";
+            this.NhaSanXuatComboBox.Size = new System.Drawing.Size(121, 24);
+            this.NhaSanXuatComboBox.TabIndex = 15;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -220,7 +225,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.DateTimePicker NgayNhapDateTimePicker;
-        private System.Windows.Forms.TextBox MatHangTextBox;
         private System.Windows.Forms.TextBox TenSanPhamTextBox;
         private System.Windows.Forms.TextBox MaSanPhamTextBox;
         private System.Windows.Forms.Button cancelButton;
@@ -231,6 +235,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox NhaSanXuatTextBox;
+        private System.Windows.Forms.ComboBox NhaSanXuatComboBox;
+        private System.Windows.Forms.ComboBox MatHangComboBox;
     }
 }
