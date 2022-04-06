@@ -79,7 +79,6 @@
             this.idLabel.Size = new System.Drawing.Size(88, 16);
             this.idLabel.TabIndex = 1;
             this.idLabel.Text = "Mã sản phẩm";
-            this.idLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // nameLabel
             // 
