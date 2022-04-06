@@ -17,6 +17,7 @@ namespace AppGK
         public Form1()
         {
             InitializeComponent();
+            dataGridView1.AutoGenerateColumns=true;
             sortComboBox.Items.Add("STT");
             sortComboBox.Items.Add("MSP");
             sortComboBox.Items.Add("TenSanPham");
@@ -36,8 +37,8 @@ namespace AppGK
         }
         public void Reload(string name)
         {
-            if (name == null) dataGridView1.DataSource = DBSP.Get();
-            dataGridView1.DataSource = DBSP.Get();
+            if (name == "") dataGridView1.DataSource = QLSPInstance.GetAllSP();
+            else dataGridView1.DataSource = QLSPInstance.GetSPByName(name);
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -46,6 +47,10 @@ namespace AppGK
             f.d = Reload;
             f.Show();
         }
-       
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            Reload(searchTextBox.Text);
+        }
     }
 }

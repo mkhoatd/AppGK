@@ -38,7 +38,7 @@ namespace AppGK
         }
         public List<SanPham> GetSPByName(string TenSanPham)
         {
-            if(TenSanPham == null) return GetAllSP();
+            if(TenSanPham == "") return GetAllSP();
             List<SanPham> data=new List<SanPham>();
             foreach(SanPham s in GetAllSP())
             {
@@ -58,7 +58,7 @@ namespace AppGK
         public List<string> GetNhaSanXuat(string TenMatHang)
         {
             List<string> data = new List<string>();
-            if (TenMatHang == null)
+            if (TenMatHang == "")
             {
                 foreach (SanPham s in GetAllSP())
                 {
